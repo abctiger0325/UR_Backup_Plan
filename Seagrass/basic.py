@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # Load the two images
-img1 = cv2.imread('image1.jpg')
-img2 = cv2.imread('image2.jpg')
+img1 = cv2.imread('real_image1.jpg')
+img2 = cv2.imread('real_image2.jpg')
 
 # Display the images
 cv2.imshow('Image 1', img1)
