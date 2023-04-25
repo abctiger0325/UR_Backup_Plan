@@ -29,7 +29,7 @@ poly3d = [[tupleList[vertices[ix][iy]] for iy in range(len(vertices[0]))] for ix
 ax.scatter(x,y,z)
 ax.add_collection3d(Poly3DCollection(poly3d, facecolors='w', linewidths=1, alpha=1))
 
-angle = math.radians(45)
+angle = math.radians(60)
 
 R = np.array([
     [np.cos(angle), -np.sin(angle), 0],
@@ -52,8 +52,15 @@ new_vertices = [list(new_vertices[i]) for i in range(len(new_vertices))]
 # new_vertices = np.dot(new_vertices, R)
 # print(new_vertices)
 
+# print(new_vertices)
+print(centroid)
+radius = math.sqrt(centroid[0] ** 2 + centroid[1] ** 2)
 
-poly3d = [[new_vertices[vertices[ix][iy]] for iy in range(len(vertices[0]))] for ix in range(len(vertices))]
+for i in range(len(tupleList)):
+    tupleList[i][0] *= np.cos(angle)
+    tupleList[i][1] *= np.sin(angle)
+
+poly3d = [[tupleList[vertices[ix][iy]] for iy in range(len(vertices[0]))] for ix in range(len(vertices))]
 ax.add_collection3d(Poly3DCollection(poly3d, facecolors='b', linewidths=1, alpha=1))
 
 plt.show()
