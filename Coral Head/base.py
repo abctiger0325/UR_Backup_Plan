@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 import itertools
+import math
 
 # User inputs
 diameter_x = 24.0
@@ -52,8 +53,13 @@ ax.text(diameter_x + 1, 0, 0, f"Radius = {diameter_x:.2f}")
 # Add area
 # x = cal, y = 0,z = level
 # x^2 / a^2 + y^2 / b^2 = 1
-oval_x = math.sqrt((1 - ))
-center = [diameter_x/2,0,(remain_z/4) * 3]
+#0.765 : 14^2 / 16^2
+# area_height = (remain_z/4) * 3
+# oval_x = (1 - math.sqrt(area_height**2/(diameter_z/2)**2)) * 12**2
+oval_x = (1 - 0.765) * 12**2
+oval_x = math.sqrt(oval_x)
+center = [oval_x,0,(remain_z/4) * 3]
+print(center)
 length = 2
 
 square_vertices = np.array([
@@ -72,7 +78,7 @@ combinations = list(itertools.combinations(nums, 4))
 # print(combinations)
 vertices =  [list(combinations[i]) for i in range(len(combinations))]
 poly3d = [[square_vertices[vertices[ix][iy]] for iy in range(len(vertices[0]))] for ix in range(len(vertices))]
-ax.add_collection3d(Poly3DCollection(poly3d, facecolors='w', linewidths=1, alpha=1))
+ax.add_collection3d(Poly3DCollection(poly3d, facecolors='b', linewidths=1, alpha=1))
 
 plt.show()
 
