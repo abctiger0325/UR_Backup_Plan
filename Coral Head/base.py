@@ -24,11 +24,17 @@ plane_normal = np.array([0, 0, -1])  # normal vector of the slicing plane
 plane_origin = np.array([0, 0, 14])  # origin of the slicing plane
 cut = cut.slice_plane(plane_normal=plane_normal, plane_origin=plane_origin)
 
+
+# Create a new trimesh object with the sliced mesh and add a plane to it
+# sliced_mesh = trimesh.Trimesh(vertices=cut.vertices, faces=cut.faces)
+# plane_mesh = trimesh.creation.plane(plane_origin, plane_normal)
+# sliced_mesh = sliced_mesh + plane_mesh
+
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.view_init(elev=20, azim=-135)  # set view angle
 ax.set_box_aspect([1, 1, 1])  # set equal aspect ratio for all axes
-print(trimesh.visual.color.ColorVisuals(cut))
+# print(trimesh.visual.color.ColorVisuals(sliced_mesh))
 
 verts = cut.vertices
 faces = cut.faces
