@@ -170,7 +170,7 @@ for i in range(3):
     area_height = (remain_z/4) * latitude
 
     longitude = int(input(f"Square {i} longitude(1 - 12):"))
-    angle = math.radians(30 * (longitude % 12))
+    angle = math.radians(-30 * (longitude % 12))
     # color = input(f"Square {i} Color:")
 
     R = np.array([
