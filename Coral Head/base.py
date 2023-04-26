@@ -112,11 +112,11 @@ while True:
 
 
 # User inputs
-diameter_x = int(input("Diameter: "))
+diameter_x = float(input("Diameter: "))
 diameter_y = diameter_x
 
-remain_z = int(input("Height: "))
-Dome = int(input("Dome or Flat on Top (1:Dome, 0:Flat): "))
+remain_z = float(input("Height: "))
+Dome = int(input("Dome or Flat on Top (0:Dome, 1:Flat): "))
 diameter_z = remain_z + (remain_z * 1.2 * Dome)
 # remain_z = 10.5
 
